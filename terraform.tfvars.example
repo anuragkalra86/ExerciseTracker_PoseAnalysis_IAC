@@ -1,0 +1,25 @@
+# Copy this file to terraform.tfvars and customize as needed
+
+# AWS Configuration
+aws_region = "us-west-2"
+
+# SNS Topic (existing)
+sns_topic_name = "exercise-tracker-dev-video-upload-notifications"
+
+# SQS Configuration
+sqs_queue_name         = "exercise-tracker-dev-pose-analysis"
+sqs_visibility_timeout = 3600  # 1 hour (6 times Lambda timeout)
+sqs_message_retention  = 86400  # 1 day in seconds
+sqs_max_receives       = 3
+
+# Lambda Configuration
+lambda_function_name = "exercise-tracker-dev-pose-analysis"
+lambda_runtime       = "python3.13"
+lambda_timeout       = 600   # 10 minutes
+lambda_memory_size   = 1024  # MB
+
+# S3 Configuration
+s3_bucket_name = "exercise-tracker-fa20651d-064c-4a95-8540-edfe2af691cd"
+
+# Secrets Manager Configuration
+secret_name = "exercise-tracker/dev/aurora/connection-string" 
